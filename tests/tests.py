@@ -1,8 +1,5 @@
-import helloworld
-
-
-def fail_test():
-    raise Exception('Test failed')
+import src.helloworld as helloworld
+import pytest
 
 
 def test_hello_world():
@@ -15,9 +12,9 @@ def test_hello_world_with_arg():
     except TypeError:
         pass
     except:
-        fail_test()
+        pytest.fail('Did not raise TypeError')
     else:
-        fail_test()
+        pytest.fail('Did not raise TypeError')
 
 
 def test_hello_by_name():
@@ -32,13 +29,6 @@ def test_hello_by_name_without_arg():
     except TypeError:
         pass
     except:
-        fail_test()
+        pytest.fail('Did not raise TypeError')
     else:
-        fail_test()
-
-
-if __name__ == '__main__':
-    test_hello_world()
-    test_hello_world_with_arg()
-    test_hello_by_name()
-    test_hello_by_name_without_arg()
+        pytest.fail('Did not raise TypeError')
